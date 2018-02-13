@@ -2,8 +2,16 @@
 {-# LANGUAGE FlexibleContexts          #-}
 {-# LANGUAGE TypeFamilies              #-}
 
+-- |A library for drawing arbitrary degree bezier curves with Diagrams
+module Diagrams.Bezier
+     ( Bezier(Bezier,bez_controls,bez_begin,bez_end)
+     , mkBezier
+     , approxParam
+     , estimateBezierParam
+     , approxBezier
+     ) where
+
 import Diagrams.Prelude
-import Diagrams.Backend.Cairo.CmdLine
 
 -- Combinatorics helpers
 
@@ -82,13 +90,4 @@ approxBezier :: (Semigroup a, TrailLike a, RealFrac (N a))
 approxBezier b = approxParam b n
  where n :: Integer
        n = estimateBezierParam b
-
--- Main
--- |Draws a bezier curve
-main :: IO ()
-main = mainWith diag 
- where diag :: QDiagram Cairo V2 Double Any
-       diag = approxBezier bez
-       bez  :: Bezier V2 Double
-       bez  = mkBezier [0 ^& 0, 1 ^& 1, 2 ^& 0.5, 1 ^& 0]
 

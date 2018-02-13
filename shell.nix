@@ -11,8 +11,8 @@ let
         pname = "bezier";
         version = "0.1.0.0";
         src = ./.;
-        isLibrary = false;
-        isExecutable = true;
+        isLibrary = true;
+        isExecutable = false;
         executableHaskellDepends = [
           array base containers diagrams diagrams-cairo transformers
         ];
