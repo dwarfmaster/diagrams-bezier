@@ -4,8 +4,8 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, array, base, containers, diagrams, stdenv
-      , transformers, diagrams-cairo
+  f = { mkDerivation, array, base, containers, diagrams
+      , diagrams-cairo, stdenv, transformers
       }:
       mkDerivation {
         pname = "bezier";
@@ -16,6 +16,7 @@ let
         executableHaskellDepends = [
           array base containers diagrams diagrams-cairo transformers
         ];
+        buildDepends = with pkgs; [ cabal-install ];
         license = stdenv.lib.licenses.mit;
       };
 

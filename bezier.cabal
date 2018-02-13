@@ -18,7 +18,9 @@ executable bezier
   -- other-extensions:    
   build-depends:       base >= 4.10 && < 4.11
                      , array, containers, transformers
-                     , diagrams, diagrams-cairo
+                     , diagrams, diagrams-contrib, diagrams-core
+                     , diagrams-lib, diagrams-solve, diagrams-svg
+                     , diagrams-cairo
   hs-source-dirs:      src
   ghc-options:         -Wall
   default-language:    Haskell2010
