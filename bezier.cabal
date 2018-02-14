@@ -19,7 +19,7 @@ library
                      , array, containers, transformers
                      , diagrams, diagrams-contrib, diagrams-core
                      , diagrams-lib, diagrams-solve, diagrams-svg
-                     , diagrams-cairo
+                     , diagrams-cairo, QuickCheck
   ghc-options:         -Wall
   default-language:    Haskell2010
 
