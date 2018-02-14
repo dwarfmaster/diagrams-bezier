@@ -10,10 +10,12 @@ module Diagrams.Bezier
      , approxParam
      , estimateBezierParam
      , approxBezier
+     , bezier_spec
      ) where
 
 import Diagrams.Prelude hiding ((===))
 import Test.QuickCheck
+import Test.Hspec
 
 -- Combinatorics helpers
 
@@ -134,6 +136,12 @@ approxBezier b = approxParam b n
  where n :: Integer
        n = estimateBezierParam b
 
-return [ ]
-_properties_check = $quickCheckAll
+bezier_spec :: Spec
+bezier_spec = do
+    describe "Binomial coefficients" $ do
+        it "prop_combs" $ property prop_combs
+    describe "Bezier coefficients" $ do
+        it "prop_coeffs_sum"      $ property prop_coeffs_sum
+        it "prop_coeffs_positive" $ property prop_coeffs_positive
+        it "prop_coeffs"          $ property prop_coeffs
 

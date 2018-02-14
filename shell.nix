@@ -6,6 +6,7 @@ let
 
   f = { mkDerivation, array, base, containers, diagrams
       , diagrams-cairo, stdenv, transformers, QuickCheck
+      , hspec
       }:
       mkDerivation {
         pname = "bezier";
@@ -15,7 +16,7 @@ let
         isExecutable = false;
         executableHaskellDepends = [
           array base containers diagrams diagrams-cairo transformers
-          QuickCheck
+          QuickCheck hspec
         ];
         buildDepends = with pkgs; [ cabal-install ];
         license = stdenv.lib.licenses.mit;
